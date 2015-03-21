@@ -57,6 +57,7 @@ vt_parser_input(vt_parser_t parser, unsigned char *buffer, unsigned size) {
         if (ch == 0x1b) {
             parser->escaped = 1;
         } else if (parser->escaped) {
+            parser->escaped = 0;
             switch (ch) {
             case 0x50:
                 _mode_set(parser, PARSER_DCS);
